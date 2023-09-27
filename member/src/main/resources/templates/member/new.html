@@ -25,7 +25,16 @@
         </div>
         <div class="form-group">
           <label class="control-label">都道府県</label>
-          <input class="form-control" type="number" name="prefectures" />
+
+          <select name="prefectures">
+            <option value="00"></option>
+            <option
+                th:each="prefectures : ${prefecturesList}"
+                th:value="${prefectures.id}"
+                th:text="${prefectures.name}"
+                th:selected="${prefectures.id == selectedValue}">
+            </option>
+        </select>
         </div>
         <div class="form-group">
           <label class="control-label">住所</label>
