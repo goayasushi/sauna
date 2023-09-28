@@ -10,7 +10,7 @@ create table if not EXISTS members(
 	last_name varchar(255),
 	birth_date timestamp,
 	post_code varchar(255),
-	prefectures INT,
+	prefecture INT,
 	address1 varchar(255),
 	address2 varchar(255),
 	phone_number varchar(255),
@@ -21,5 +21,6 @@ create table if not EXISTS members(
 	update_datetime timestamp,
 	update_staff INT,
 	regist_datetime timestamp,
-	regist_staff INT
+	regist_staff INT,
+	FOREIGN KEY(prefecture) REFERENCES prefectures(id)
 );

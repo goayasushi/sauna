@@ -46,4 +46,4 @@ INSERT INTO prefectures VALUES(45,'宮崎県','ミヤザキケン');
 INSERT INTO prefectures VALUES(46,'鹿児島県','カゴシマケン');
 INSERT INTO prefectures VALUES(47,'沖縄県','オキナワケン');
 
-INSERT INTO members(first_name, last_name, GENDER) VALUES('テスト','テスト', true);
+INSERT INTO members(first_name, last_name,prefecture_id, GENDER) VALUES('テスト','テスト', 1, true);

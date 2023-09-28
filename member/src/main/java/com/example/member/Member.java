@@ -8,6 +8,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -20,7 +21,9 @@ public class Member implements Serializable {
 	private String lastName;
 	private LocalDate birthDate;
 	private String postCode;
-	private Integer prefectures;
+//	private Integer prefectures;
+	@ManyToOne
+	private Prefecture prefecture;
 	private String address1;
 	private String address2;
 	private String phoneNumber;
@@ -73,12 +76,19 @@ public class Member implements Serializable {
 		this.postCode = postCode;
 	}
 
-	public Integer getPrefectures() {
-		return prefectures;
+//	public Integer getPrefectures() {
+//		return prefectures;
+//	}
+//
+//	public void setPrefectures(Integer prefectures) {
+//		this.prefectures = prefectures;
+//	}
+	public Prefecture getPrefecture() {
+		return prefecture;
 	}
 
-	public void setPrefectures(Integer prefectures) {
-		this.prefectures = prefectures;
+	public void setPrefecture(Prefecture prefecture) {
+		this.prefecture = prefecture;
 	}
 
 	public String getAddress1() {
