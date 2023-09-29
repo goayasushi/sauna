@@ -16,7 +16,7 @@ public class MemberControllerTest {
     void testGetMembers(@Autowired MockMvc mvc) throws Exception {
 
         mvc.perform(
-                MockMvcRequestBuilders.get("/member/list"))
+                MockMvcRequestBuilders.get("/member/search"))
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }
 }
