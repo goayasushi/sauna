@@ -10,6 +10,11 @@
   <body>
     <div class="container">
       <h1>New Player</h1>
+      <table>
+        <tr th:if="${validationError}" th:each="error : ${validationError}">
+            <td style="color: red;" th:text="${error}"></td>
+        </tr>
+	  </table>
       <form th:action="@{/member/regist}" th:method="post">
         <div class="form-group">
           <label class="control-label">姓</label>
