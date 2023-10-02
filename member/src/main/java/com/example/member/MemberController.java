@@ -31,6 +31,7 @@ public class MemberController {
 	public String newMember(Model model) {
 		List<Prefecture> prefecturesList = prefectureService.findAll();
         model.addAttribute("prefecturesList", prefecturesList);
+        model.addAttribute("member", new Member());
         System.out.println(prefecturesList.size());
 		return "member/new";
 	}
@@ -43,15 +44,10 @@ public class MemberController {
 	}
 
 	@PostMapping("member/regist")
-	public String postMember(@ModelAttribute @Validated  Member member, BindingResult result, Model model) {
-		 if (result.hasErrors()) {
-	            List<String> errorList = new ArrayList<String>();
-	            for (ObjectError error : result.getAllErrors()) {
-	                errorList.add(error.getDefaultMessage());
-	            }
-	            model.addAttribute("validationError", errorList);
-	            return "member/new";
-	        }
+	public String postMember(@ModelAttribute @Validated  Member member, BindingResult result) {
+		if(result.hasErrors()){
+			return "member/new";
+	    }
 		memberService.save(member);
 		return "redirect:search";
 	}
