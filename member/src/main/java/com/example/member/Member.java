@@ -4,7 +4,12 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.EntityListeners;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -12,9 +17,9 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 
-
 @Entity
 @Table(name = "members")
+@EntityListeners(AuditingEntityListener.class)
 public class Member implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,22 +28,23 @@ public class Member implements Serializable {
 	private String firstName;
 	@NotBlank
 	private String lastName;
+	private boolean gender;
 	private LocalDate birthDate;
 	private String postCode;
-//	private Integer prefectures;
 	@ManyToOne
 	private Prefecture prefecture;
 	private String address1;
 	private String address2;
 	private String phoneNumber;
-	private boolean gender;
 	private LocalDate joinDate;
 	private LocalDate doleteDate;
 	private Integer status;
-	private LocalDateTime updateDatetime;
-	private Integer updateStaff;
+	@CreatedDate
 	private LocalDateTime registDatetime;
 	private Integer registStaff;
+	@LastModifiedDate
+	private LocalDateTime updateDatetime;
+	private Integer updateStaff;
 
 	public Integer getId() {
 		return id;
@@ -80,13 +86,6 @@ public class Member implements Serializable {
 		this.postCode = postCode;
 	}
 
-//	public Integer getPrefectures() {
-//		return prefectures;
-//	}
-//
-//	public void setPrefectures(Integer prefectures) {
-//		this.prefectures = prefectures;
-//	}
 	public Prefecture getPrefecture() {
 		return prefecture;
 	}
