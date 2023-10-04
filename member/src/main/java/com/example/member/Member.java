@@ -3,6 +3,7 @@ package com.example.member;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -16,6 +17,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "members")
@@ -29,18 +31,23 @@ public class Member implements Serializable {
 	@NotBlank
 	private String lastName;
 	private boolean gender;
+//	@Pattern(regexp = "^\\d{4}-\\d{2}-\\d{2}$")
 	private LocalDate birthDate;
+	@Pattern(regexp = "^\\d{3}-\\d{4}$")
 	private String postCode;
 	@ManyToOne
+//	@NotBlank
 	private Prefecture prefecture;
+	@NotBlank
 	private String address1;
 	private String address2;
+	@Pattern(regexp = "\\d{2,4}-\\d{2,4}-\\d{4}")
 	private String phoneNumber;
 	private LocalDate joinDate;
 	private LocalDate doleteDate;
 	private Integer status;
 	@CreatedDate
-	private LocalDateTime registDatetime;
+	private Date registDatetime;
 	private Integer registStaff;
 	@LastModifiedDate
 	private LocalDateTime updateDatetime;
@@ -68,6 +75,14 @@ public class Member implements Serializable {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+	public boolean isGender() {
+		return gender;
+	}
+
+	public void setGender(boolean gender) {
+		this.gender = gender;
 	}
 
 	public LocalDate getBirthDate() {
@@ -118,14 +133,6 @@ public class Member implements Serializable {
 		this.phoneNumber = phoneNumber;
 	}
 
-	public boolean isGender() {
-		return gender;
-	}
-
-	public void setGender(boolean gender) {
-		this.gender = gender;
-	}
-
 	public LocalDate getJoinDate() {
 		return joinDate;
 	}
@@ -150,6 +157,22 @@ public class Member implements Serializable {
 		this.status = status;
 	}
 
+	public Date getRegistDatetime() {
+		return registDatetime;
+	}
+
+	public void setRegistDatetime(Date registDatetime) {
+		this.registDatetime = registDatetime;
+	}
+
+	public Integer getRegistStaff() {
+		return registStaff;
+	}
+
+	public void setRegistStaff(Integer registStaff) {
+		this.registStaff = registStaff;
+	}
+
 	public LocalDateTime getUpdateDatetime() {
 		return updateDatetime;
 	}
@@ -165,21 +188,4 @@ public class Member implements Serializable {
 	public void setUpdateStaff(Integer updateStaff) {
 		this.updateStaff = updateStaff;
 	}
-
-	public LocalDateTime getRegistDatetime() {
-		return registDatetime;
-	}
-
-	public void setRegistDatetime(LocalDateTime registDatetime) {
-		this.registDatetime = registDatetime;
-	}
-
-	public Integer getRegistStaff() {
-		return registStaff;
-	}
-
-	public void setRegistStaff(Integer registStaff) {
-		this.registStaff = registStaff;
-	}
-
 }

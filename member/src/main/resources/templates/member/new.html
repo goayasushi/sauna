@@ -31,11 +31,11 @@
 			</div>
 			<div class="form-group">
 				<label for="birthDate" class="control-label">生年月日</label>
-				<input class="form-control" type="text" th:field="*{birthDate}" />
+				<input class="form-control" type="text" th:field="*{birthDate}" placeholder="yyyy-mm-dd"/>
 			</div>
 			<div class="form-group">
 				<label for="postCode" class="control-label">郵便番号</label>
-				<input class="form-control" type="text" th:field="*{postCode}" />
+				<input class="form-control" type="text" th:field="*{postCode}" placeholder="XXX-XXXX"/>
 			</div>
 			<div class="form-group">
 				<label for="prefecture" class="control-label">都道府県</label>
@@ -48,7 +48,7 @@
 			</div>
 			<div class="form-group">
 				<label for="address1" class="control-label">住所</label>
-				<input class="form-control" type="text" th:field="*{address1}" />
+				<input class="form-control" type="text" th:field="*{address1}" placeholder="市区町村　番地"/>
 			</div>
 			<div class="form-group">
 				<label for="address2" class="control-label">アパート名</label>
@@ -56,7 +56,7 @@
 			</div>
 			<div class="form-group">
 				<label for="phoneNumber" class="control-label">電話番号</label>
-				<input class="form-control" type="text" th:field="*{phoneNumber}" />
+				<input class="form-control" type="text" th:field="*{phoneNumber}" placeholder="080-xxxx-xxxx"/>
 			</div>
 			<button class="btn btn-default" type="submit">作成</button>
 		</form>

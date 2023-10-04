@@ -32,7 +32,6 @@ public class MemberController {
 		List<Prefecture> prefecturesList = prefectureService.findAll();
         model.addAttribute("prefecturesList", prefecturesList);
         model.addAttribute("member", new Member());
-        System.out.println(prefecturesList.size());
 		return "member/new";
 	}
 
