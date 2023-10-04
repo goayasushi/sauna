@@ -10,6 +10,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.example.member.domain.model.Member;
+import com.example.member.domain.service.MemberService;
+
 @SpringBootTest
 public class MemberServiceTest {
 	MemberService memberService;

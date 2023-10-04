@@ -1,4 +1,4 @@
-package com.example.member;
+package com.example.member.app;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +11,11 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import com.example.member.domain.model.Member;
+import com.example.member.domain.model.Prefecture;
+import com.example.member.domain.service.MemberService;
+import com.example.member.domain.service.PrefectureService;
 
 @Controller
 public class MemberController {

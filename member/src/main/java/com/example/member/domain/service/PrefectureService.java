@@ -1,8 +1,11 @@
-package com.example.member;
+package com.example.member.domain.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+
+import com.example.member.domain.model.Prefecture;
+import com.example.member.domain.repository.PrefectureRepository;
 
 @Service
 public class PrefectureService {

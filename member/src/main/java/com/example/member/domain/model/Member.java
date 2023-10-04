@@ -1,4 +1,4 @@
-package com.example.member;
+package com.example.member.domain.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
