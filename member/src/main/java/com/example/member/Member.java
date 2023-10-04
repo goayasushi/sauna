@@ -17,6 +17,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
 @Entity
@@ -30,13 +31,14 @@ public class Member implements Serializable {
 	private String firstName;
 	@NotBlank
 	private String lastName;
-	private boolean gender;
-//	@Pattern(regexp = "^\\d{4}-\\d{2}-\\d{2}$")
+	@NotNull
+	private Integer gender;
+//	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate birthDate;
 	@Pattern(regexp = "^\\d{3}-\\d{4}$")
 	private String postCode;
 	@ManyToOne
-//	@NotBlank
+	@NotNull
 	private Prefecture prefecture;
 	@NotBlank
 	private String address1;
@@ -77,11 +79,11 @@ public class Member implements Serializable {
 		this.lastName = lastName;
 	}
 
-	public boolean isGender() {
+	public Integer isGender() {
 		return gender;
 	}
 
-	public void setGender(boolean gender) {
+	public void setGender(Integer gender) {
 		this.gender = gender;
 	}
 
