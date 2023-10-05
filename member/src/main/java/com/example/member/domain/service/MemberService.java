@@ -22,5 +22,8 @@ public class MemberService {
 	public Member save(Member member) {
 		return memberRepository.save(member);
 	}
-
+	
+	public Member findById(Integer id) {
+	    return memberRepository.findById(id).orElse(new Member());
+	  }
 }

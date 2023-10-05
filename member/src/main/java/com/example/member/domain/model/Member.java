@@ -33,7 +33,7 @@ public class Member implements Serializable {
 	private String lastName;
 	@NotNull
 	private Integer gender;
-//	@DateTimeFormat(pattern = "yyyy-MM-dd")
+
 	private LocalDate birthDate;
 	@Pattern(regexp = "^\\d{3}-\\d{4}$")
 	private String postCode;
@@ -79,7 +79,7 @@ public class Member implements Serializable {
 		this.lastName = lastName;
 	}
 
-	public Integer isGender() {
+	public Integer getGender() {
 		return gender;
 	}
 

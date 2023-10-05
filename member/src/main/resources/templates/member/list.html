@@ -28,7 +28,7 @@
           <!-- ② -->
           <tr th:each="member:${members}" th:object="${member}">
             <!-- ③ -->
-            <td th:text="*{id}"></td>
+            <td ><a th:href="@{{id}(id=*{id})}" th:text="*{id}"></a></td>　
             <td th:text="*{firstName}"></td>
             <td th:text="*{lastName}"></td>
             <td th:text="*{postCode}"></td>

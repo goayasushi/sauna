@@ -1,15 +1,14 @@
 package com.example.member.app;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.member.domain.model.Member;
@@ -26,7 +25,7 @@ public class MemberController {
 		this.memberService = memberService;
 		this.prefectureService = prefectureService;
 	}
-	
+
 	@GetMapping("index")
 	public String index(Model model) {
 		return "index";
@@ -35,8 +34,8 @@ public class MemberController {
 	@GetMapping("member/new")
 	public String newMember(Model model) {
 		List<Prefecture> prefecturesList = prefectureService.findAll();
-        model.addAttribute("prefecturesList", prefecturesList);
-        model.addAttribute("member", new Member());
+		model.addAttribute("prefecturesList", prefecturesList);
+		model.addAttribute("member", new Member());
 		return "member/new";
 	}
 
@@ -48,10 +47,36 @@ public class MemberController {
 	}
 
 	@PostMapping("member/regist")
-	public String postMember(@ModelAttribute @Validated  Member member, BindingResult result) {
-		if(result.hasErrors()){
+	public String postMember(@ModelAttribute @Validated Member member, BindingResult result) {
+		if (result.hasErrors()) {
 			return "member/new";
-	    }
+		}
+		memberService.save(member);
+		return "redirect:search";
+	}
+
+	@GetMapping("member/{id}")
+	public String showMember(@PathVariable Integer id, Model model) {
+		Member member = memberService.findById(id);
+		model.addAttribute("member", member);
+		return "member/show";
+	}
+	
+	@GetMapping("member/{id}/edit")
+	public String editMember(@PathVariable Integer id, Model model) {
+		Member member = memberService.findById(id);
+		List<Prefecture> prefecturesList = prefectureService.findAll();
+		model.addAttribute("prefecturesList", prefecturesList);
+		model.addAttribute("member", member);
+		return "member/edit";
+	}
+	
+	@PostMapping("member/update")
+	public String updateMember(@ModelAttribute @Validated Member member, BindingResult result) {
+		if (result.hasErrors()) {
+			return "member/{id}/edit";
+		}
+		System.out.print(member.getId());
 		memberService.save(member);
 		return "redirect:search";
 	}

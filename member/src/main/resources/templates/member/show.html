@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Show Member</title>
+	<link rel="stylesheet" href="/css/bootstrap.css" />
+</head>
+
+<body>
+	<div class="container" th:object="${member}">
+		<h1>ユーザー情報詳細</h1>
+		<div class="form-group">
+			<label for="firstName" class="control-label">姓</label>
+			<span th:text="*{firstName}"></span>
+		</div>
+		<div class="form-group">
+			<label for="lastName" class="control-label">名</label>
+			<span th:text="*{lastName}"></span>
+		</div>
+		<div class="form-group">
+			<label for="gender" class="control-label">性別</label>
+			<span th:text="*{gender}"></span>
+		</div>
+		<div class="form-group">
+			<label for="birthDate" class="control-label">生年月日</label>
+			<span th:text="*{birthDate}"></span>
+		</div>
+		<div class="form-group">
+			<label for="postCode" class="control-label">郵便番号</label>
+			<span th:text="*{postCode}"></span>
+		</div>
+		<div class="form-group">
+			<label for="prefecture" class="control-label">都道府県</label>
+			<span th:text="*{prefecture.name}"></span>
+		</div>
+		<div class="form-group">
+			<label for="address1" class="control-label">住所</label>
+			<span th:text="*{address1}"></span>
+		</div>
+		<div class="form-group">
+			<label for="address2" class="control-label">アパート名</label>
+			<span th:text="*{address2}"></span>
+		</div>
+		<div class="form-group">
+			<label for="phoneNumber" class="control-label">電話番号</label>
+			<span th:text="*{phoneNumber}"></span>
+		</div>
+
+		<div class="text-center">
+			<a th:href="@{/member/{id}/edit(id=*{id})}" class="btn btn-primary">　編集　</a>
+			<a th:href="@{/member/{id}/delete(id=*{id})}" class="btn btn-secondary disabled"
+				aria-disabled="true">　削除　</a>
+			<a href="/user/list" class="btn btn-secondary">一覧に戻る</a>
+		</div>
+	</div>
+</body>
+
+</html>
