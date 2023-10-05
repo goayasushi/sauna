@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<meta charset="utf-8" />
@@ -9,49 +9,50 @@
 
 <body>
 	<div class="container" th:object="${member}">
-		<h1>ユーザー情報詳細</h1>
-		<div class="form-group">
-			<label for="firstName" class="control-label">姓</label>
-			<span th:text="*{firstName}"></span>
-		</div>
-		<div class="form-group">
-			<label for="lastName" class="control-label">名</label>
-			<span th:text="*{lastName}"></span>
-		</div>
-		<div class="form-group">
-			<label for="gender" class="control-label">性別</label>
-			<span th:text="*{gender}"></span>
-		</div>
-		<div class="form-group">
-			<label for="birthDate" class="control-label">生年月日</label>
-			<span th:text="*{birthDate}"></span>
-		</div>
-		<div class="form-group">
-			<label for="postCode" class="control-label">郵便番号</label>
-			<span th:text="*{postCode}"></span>
-		</div>
-		<div class="form-group">
-			<label for="prefecture" class="control-label">都道府県</label>
-			<span th:text="*{prefecture.name}"></span>
-		</div>
-		<div class="form-group">
-			<label for="address1" class="control-label">住所</label>
-			<span th:text="*{address1}"></span>
-		</div>
-		<div class="form-group">
-			<label for="address2" class="control-label">アパート名</label>
-			<span th:text="*{address2}"></span>
-		</div>
-		<div class="form-group">
-			<label for="phoneNumber" class="control-label">電話番号</label>
-			<span th:text="*{phoneNumber}"></span>
-		</div>
-
+		<h1>会員詳細</h1>
+		<table class="table table-bordered table-hover col-md-3">
+			<tr>
+				<th for="firstName" class="control-label">姓</th>
+				<td><span th:text="*{firstName}"></span></td>
+			</tr>
+			<tr>
+				<th for="lastName" class="control-label">名</th>
+				<td><span th:text="*{lastName}"></span></td>
+			</tr>
+			<tr>
+				<th for="gender" class="control-label">性別</th>
+				<td><span th:text="*{gender}"></span></td>
+			</tr>
+			<tr>
+				<th for="birthDate" class="control-label">生年月日</th>
+				<td></td><span th:text="*{birthDate}"></span></td>
+			</tr>
+			<tr>
+				<th for="postCode" class="control-label">郵便番号</th>
+				<td><span th:text="*{postCode}"></span></td>
+			</tr>
+			<tr>
+				<th for="prefecture" class="control-label">都道府県</th>
+				<td><span th:text="*{prefecture.name}"></span></td>
+			</tr>
+			<tr>
+				<th for="address1" class="control-label">住所</label>
+				<td><span th:text="*{address1}"></span></td>
+			</tr>
+			<tr>
+				<th for="address2" class="control-label">アパート名</label>
+				<td><span th:text="*{address2}"></span></td>
+			</tr>
+			<tr>
+				<th for="phoneNumber" class="control-label">電話番号</label>
+				<td><span th:text="*{phoneNumber}"></span></td>
+			</tr>
+		</table>
 		<div class="text-center">
-			<a th:href="@{/member/{id}/edit(id=*{id})}" class="btn btn-primary">　編集　</a>
-			<a th:href="@{/member/{id}/delete(id=*{id})}" class="btn btn-secondary disabled"
-				aria-disabled="true">　削除　</a>
-			<a href="/user/list" class="btn btn-secondary">一覧に戻る</a>
+			<a th:href="@{/member/{id}/edit(id=*{id})}" class="btn btn-default">編集</a>
+<!--			<a th:href="@{/member/{id}/delete(id=*{id})}" class="btn btn-secondary disabled"-->
+<!--				aria-disabled="true">　削除　</a>-->
+			<a class="btn btn-default" th:href="@{/member/search}">一覧画面へ</a>
 		</div>
 	</div>
 </body>

@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8" />
-	<title>New Member</title>
+	<title>Edit Member</title>
 	<link rel="stylesheet" href="/css/bootstrap.css" />
 	<style type="text/css">
 		.errorStr {
@@ -16,7 +16,7 @@
 
 <body>
 	<div class="container">
-		<h1>Edit Player</h1>
+		<h1>会員情報編集</h1>
 		<form th:action="@{/member/update}" th:object="${member}" th:method="post">
 			<span class="errorStr" th:errors="*"></span>
 <!--			<input type="hidden" name="id" th:field="*{id}"/>-->
@@ -32,7 +32,7 @@
 			</div>
 			<div class="form-group">
 				<label for="gender" class="control-label">性別</label>
-				<select name="gender" th:field="*{gender}"/>
+				<select class="form-control" name="gender" th:field="*{gender}"/>
 					<option value=""></option>
 					<option value="1">男性</option>
 					<option value="2">女性</option>
@@ -69,8 +69,8 @@
 			</div>
 			<button class="btn btn-default" type="submit">更新</button>
 		</form>
-		<div class="pull-right">
-			<a class="btn btn-link" th:href="@{/member/search}">一覧画面へ</a>
+		<div>
+			<a class="btn btn-default" th:href="@{/member/search}">一覧画面へ</a>
 		</div>
 	</div>
 </body>
