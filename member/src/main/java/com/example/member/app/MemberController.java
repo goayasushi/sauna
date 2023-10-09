@@ -47,8 +47,10 @@ public class MemberController {
 	}
 
 	@PostMapping("member/regist")
-	public String postMember(@ModelAttribute @Validated Member member, BindingResult result) {
+	public String postMember(@ModelAttribute @Validated Member member, BindingResult result, Model model) {
 		if (result.hasErrors()) {
+			List<Prefecture> prefecturesList = prefectureService.findAll();
+			model.addAttribute("prefecturesList", prefecturesList);
 			return "member/new";
 		}
 		memberService.save(member);
@@ -72,9 +74,11 @@ public class MemberController {
 	}
 	
 	@PostMapping("member/update")
-	public String updateMember(@ModelAttribute @Validated Member member, BindingResult result) {
+	public String updateMember(@ModelAttribute @Validated Member member, BindingResult result, Model model) {
 		if (result.hasErrors()) {
-			return "member/{id}/edit";
+			List<Prefecture> prefecturesList = prefectureService.findAll();
+			model.addAttribute("prefecturesList", prefecturesList);
+			return "member/edit";
 		}
 		System.out.print(member.getId());
 		memberService.save(member);
