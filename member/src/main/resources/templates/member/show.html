@@ -21,11 +21,11 @@
 			</tr>
 			<tr>
 				<th for="gender" class="control-label">性別</th>
-				<td><span th:text="*{gender}"></span></td>
+				<td><span th:text="${@memberConstants.GENDERS.get(member.gender)}"></span></td>
 			</tr>
 			<tr>
 				<th for="birthDate" class="control-label">生年月日</th>
-				<td></td><span th:text="*{birthDate}"></span></td>
+				<td><span th:text="*{birthDate}"></span></td>
 			</tr>
 			<tr>
 				<th for="postCode" class="control-label">郵便番号</th>
@@ -50,8 +50,7 @@
 		</table>
 		<div class="text-center">
 			<a th:href="@{/member/{id}/edit(id=*{id})}" class="btn btn-default">編集</a>
-<!--			<a th:href="@{/member/{id}/delete(id=*{id})}" class="btn btn-secondary disabled"-->
-<!--				aria-disabled="true">　削除　</a>-->
+			<a th:href="@{/member/{id}/delete(id=*{id})}" class="btn btn-default">　削除　</a>
 			<a class="btn btn-default" th:href="@{/member/search}">一覧画面へ</a>
 		</div>
 	</div>

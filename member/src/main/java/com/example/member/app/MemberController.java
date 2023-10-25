@@ -84,4 +84,11 @@ public class MemberController {
 		memberService.save(member);
 		return "redirect:search";
 	}
+	
+	@GetMapping("member/{id}/delete")
+	  public String delete(@PathVariable Integer id, Model model) {
+	    // ユーザー情報の削除
+		memberService.delete(id);
+	    return "redirect:/member/search";
+	}
 }

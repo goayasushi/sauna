@@ -26,4 +26,9 @@ public class MemberService {
 	public Member findById(Integer id) {
 	    return memberRepository.findById(id).orElse(new Member());
 	  }
+	
+	public void delete(Integer id) {
+		Member member = findById(id);
+	    memberRepository.delete(member);
+	  }
 }

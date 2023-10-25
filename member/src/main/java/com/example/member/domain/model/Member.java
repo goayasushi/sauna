@@ -35,6 +35,7 @@ public class Member implements Serializable {
 	private Integer gender;
 
 	private LocalDate birthDate;
+	@NotBlank
 	@Pattern(regexp = "^\\d{7}$")
 	private String postCode;
 	@ManyToOne
@@ -43,6 +44,7 @@ public class Member implements Serializable {
 	@NotBlank
 	private String address1;
 	private String address2;
+	@NotBlank
 	@Pattern(regexp = "^\\d{9,11}$")
 	private String phoneNumber;
 	private LocalDate joinDate;

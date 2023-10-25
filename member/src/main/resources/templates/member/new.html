@@ -31,8 +31,7 @@
 				<label for="gender" class="control-label">性別</label>
 				<select class="form-control" name="gender">
 					<option value=""></option>
-					<option value="1">男性</option>
-					<option value="2">女性</option>
+					<option th:each="gender : ${@memberConstants.GENDERS}" th:value="${gender.key}">[[${gender.value}]]</option>
 				</select>
 			</div>
 			<div class="form-group">
