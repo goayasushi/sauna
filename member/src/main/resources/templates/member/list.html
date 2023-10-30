@@ -11,6 +11,7 @@
   <body>
     <div class="container">
       <h1>会員一覧</h1>
+      <span th:if="${error}" style="color: red;">[[${error}]]</span>
       <table class="table">
         <thead>
           <tr>

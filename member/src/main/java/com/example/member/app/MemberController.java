@@ -60,6 +60,10 @@ public class MemberController {
 	@GetMapping("member/{id}")
 	public String showMember(@PathVariable Integer id, Model model) {
 		Member member = memberService.findById(id);
+		if(member.getId()==null) {
+			model.addAttribute("error", "対象データが存在しません");
+			return "member/list";
+		}
 		model.addAttribute("member", member);
 		return "member/show";
 	}

@@ -10,6 +10,8 @@
 			color: red;
 		}
 	</style>
+	<script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
+	<script th:src="@{/js/member.js}" defer="defer"></script>
 	<!-- <script src="/js/jquery.js"></script> -->
 	<!-- <script src="/js/bootstrap.js"></script> -->
 </head>
@@ -67,7 +69,7 @@
 				<label for="phoneNumber" class="control-label">電話番号</label>
 				<input class="form-control" type="text" th:field="*{phoneNumber}" placeholder="080-xxxx-xxxx" />
 			</div>
-			<button class="btn btn-default" type="submit">更新</button>
+			<button class="btn btn-default" id="save" type="submit" >更新</button>
 		</form>
 		<div>
 			<a class="btn btn-default" th:href="@{/member/search}">一覧画面へ</a>
