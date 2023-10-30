@@ -1,51 +1,43 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="utf-8" />
-    <title>Listing Member</title>
-    <!-- ① -->
-    <link rel="stylesheet" href="/css/bootstrap.css" />
-    <!-- <script src="/js/jquery.js"></script> -->
-    <!-- <script src="/js/bootstrap.js"></script> -->
-  </head>
-  <body>
-    <div class="container">
-      <h1>会員一覧</h1>
-      <span th:if="${error}" style="color: red;">[[${error}]]</span>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>姓</th>
-            <th>名</th>
-            <th>郵便番号</th>
-            <th>都道府県</th>
-            <th>住所</th>
-            
-            <th>アパート名</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- ② -->
-          <tr th:each="member:${members}" th:object="${member}">
-            <!-- ③ -->
-            <td ><a th:href="@{{id}(id=*{id})}" th:text="*{id}"></a></td>　
-            <td th:text="*{firstName}"></td>
-            <td th:text="*{lastName}"></td>
-            <td th:text="*{postCode}"></td>
-            <td th:text="*{prefecture.name}"></td>
-            <td th:text="*{address1}"></td>
-            <td th:text="*{address2}"></td>
-            
-          </tr>
-        </tbody>
-      </table>
-      <div>
-        <a class="btn btn-default" th:href="@{/member/new}">会員登録画面へ</a>
-      </div>
-      <div>
-        <a class="btn btn-default" th:href="@{/index}">トップページへ</a>
-      </div>
-    </div>
-  </body>
+
+<head>
+	<meta charset="utf-8" />
+	<title>Listing Member</title>
+	<link rel="stylesheet" href="/css/bootstrap.css" />
+</head>
+
+<body>
+	<div class="container">
+		<h1>会員一覧</h1>
+		<span th:if="${error}" style="color: red;">[[${error}]]</span>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>姓</th>
+					<th>名</th>
+					<th>性別</th>
+					<th>都道府県</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="member:${members}" th:object="${member}">
+					<td><a th:href="@{{id}(id=*{id})}" th:text="*{id}"></a></td>　
+					<td th:text="*{firstName}"></td>
+					<td th:text="*{lastName}"></td>
+					<td th:text="*{gender}"></td>
+					<td th:text="*{prefecture.name}"></td>
+				</tr>
+			</tbody>
+		</table>
+		<div>
+			<a class="btn btn-default" th:href="@{/member/new}">会員登録画面へ</a>
+		</div>
+		<div>
+			<a class="btn btn-default" th:href="@{/index}">トップページへ</a>
+		</div>
+	</div>
+</body>
+
 </html>
