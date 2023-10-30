@@ -8,9 +8,14 @@
 </head>
 
 <body>
-	<div class="container" th:object="${member}">
+	<div class="container">
 		<h1>会員詳細</h1>
-		<table class="table table-bordered table-hover col-md-3">
+		<span th:if="${error}" style="color: red;">[[${error}]]</span>
+		<table class="table table-bordered table-hover col-md-3" th:if="${member}" th:object="${member}">
+			<tr>
+				<th for="id" class="control-label">ID</th>
+				<td><span th:text="*{id}"></span></td>
+			</tr>
 			<tr>
 				<th for="firstName" class="control-label">姓</th>
 				<td><span th:text="*{firstName}"></span></td>

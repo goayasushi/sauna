@@ -71,6 +71,10 @@ public class MemberController {
 	@GetMapping("member/{id}/edit")
 	public String editMember(@PathVariable Integer id, Model model) {
 		Member member = memberService.findById(id);
+		if(member.getId()==null) {
+			model.addAttribute("error", "対象データが存在しません");
+			return "member/show";
+		}
 		List<Prefecture> prefecturesList = prefectureService.findAll();
 		model.addAttribute("prefecturesList", prefecturesList);
 		model.addAttribute("member", member);
@@ -84,9 +88,11 @@ public class MemberController {
 			model.addAttribute("prefecturesList", prefecturesList);
 			return "member/edit";
 		}
-		System.out.print(member.getId());
 		memberService.save(member);
-		return "redirect:search";
+		List<Prefecture> prefecturesList = prefectureService.findAll();
+		model.addAttribute("prefecturesList", prefecturesList);
+		model.addAttribute("member", member);
+		return "member/show";
 	}
 	
 	@GetMapping("member/{id}/delete")
