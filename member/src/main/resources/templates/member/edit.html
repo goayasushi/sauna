@@ -69,6 +69,7 @@
 				<label for="phoneNumber" class="control-label">電話番号</label>
 				<input class="form-control" type="text" th:field="*{phoneNumber}" placeholder="080-xxxx-xxxx" />
 			</div>
+			<input type="hidden" th:field="*{version}" />
 			<button class="btn btn-default" id="save" type="submit" >更新</button>
 		</form>
 		<div>

@@ -3,6 +3,7 @@ package com.example.member.app;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -46,6 +47,7 @@ public class MemberController {
 		return "member/list";
 	}
 
+	@Transactional
 	@PostMapping("member/regist")
 	public String postMember(@ModelAttribute @Validated Member member, BindingResult result, Model model) {
 		if (result.hasErrors()) {
@@ -81,6 +83,7 @@ public class MemberController {
 		return "member/edit";
 	}
 	
+	@Transactional
 	@PostMapping("member/update")
 	public String updateMember(@ModelAttribute @Validated Member member, BindingResult result, Model model) {
 		if (result.hasErrors()) {
@@ -97,7 +100,6 @@ public class MemberController {
 	
 	@GetMapping("member/{id}/delete")
 	  public String delete(@PathVariable Integer id, Model model) {
-	    // ユーザー情報の削除
 		memberService.delete(id);
 	    return "redirect:/member/search";
 	}
