@@ -22,7 +22,7 @@ public class MemberService {
 		return memberRepository.findAll(Sort.by(Sort.Direction.ASC, "id"));
 	}
 
-
+	@Transactional
 	public Member save(Member member) {
 		return memberRepository.save(member);
 	}

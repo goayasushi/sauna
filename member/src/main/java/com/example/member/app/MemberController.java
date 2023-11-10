@@ -2,6 +2,7 @@ package com.example.member.app;
 
 import java.util.List;
 
+import org.springframework.orm.ObjectOptimisticLockingFailureException;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -83,7 +84,6 @@ public class MemberController {
 		return "member/edit";
 	}
 	
-	@Transactional
 	@PostMapping("member/update")
 	public String updateMember(@ModelAttribute @Validated Member member, BindingResult result, Model model) {
 		if (result.hasErrors()) {
@@ -91,11 +91,18 @@ public class MemberController {
 			model.addAttribute("prefecturesList", prefecturesList);
 			return "member/edit";
 		}
-		memberService.save(member);
-		List<Prefecture> prefecturesList = prefectureService.findAll();
-		model.addAttribute("prefecturesList", prefecturesList);
-		model.addAttribute("member", member);
-		return "member/show";
+		try {
+			memberService.save(member);
+			List<Prefecture> prefecturesList = prefectureService.findAll();
+			model.addAttribute("prefecturesList", prefecturesList);
+			model.addAttribute("member", member);
+			return "member/show";
+		} catch (ObjectOptimisticLockingFailureException e) {
+			Member updatedMember = memberService.findById(member.getId());
+			model.addAttribute("error", "更新できませんでした");
+			model.addAttribute("member", updatedMember);
+			return "member/show";
+		}
 	}
 	
 	@GetMapping("member/{id}/delete")
