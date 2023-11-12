@@ -1,4 +1,4 @@
-package com.example.member.domain.security;
+package com.example.member.domain.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;

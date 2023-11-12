@@ -4,6 +4,12 @@ create table if not EXISTS prefectures(
 	name_kana varchar(20)
 );
 
+create table if not EXISTS users( 
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
 create table if not EXISTS members( 
 	id SERIAL primary key,
 	first_name varchar(50),
@@ -77,5 +83,7 @@ INSERT INTO prefectures VALUES(44,'大分県','オオイタケン');
 INSERT INTO prefectures VALUES(45,'宮崎県','ミヤザキケン');
 INSERT INTO prefectures VALUES(46,'鹿児島県','カゴシマケン');
 INSERT INTO prefectures VALUES(47,'沖縄県','オキナワケン');
+
+INSERT INTO users(username, password) VALUES('テスト','$2a$08$pc8zE1zCagznq05nHYv4UOVCbuDM/uloBhiLEsSRPCD0TXlmZSVFS');
 
 INSERT INTO members(first_name, last_name,prefecture, GENDER, version) VALUES('テスト','テスト', 1, 1, 0);
