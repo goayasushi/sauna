@@ -7,7 +7,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 public class UserDetailsImpl implements UserDetails {
-private User user;
+	private User user;
 	
 	public UserDetailsImpl(User user) {
 		this.user = user;

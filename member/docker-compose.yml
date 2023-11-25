@@ -1,0 +1,31 @@
+version: '3.6'
+services:
+  app:
+    image: maven:3
+    restart: always
+    command: mvn spring-boot:run
+    container_name: app
+    ports:
+      - 8080:8080
+    tty: true
+    volumes:
+      - .:/member
+    working_dir: /member
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13.1
+    container_name: db
+    environment:
+      POSTGRES_USER: "root"
+      POSTGRES_PASSWORD: "root"
+      POSTGRES_DB: "dev"
+    ports:
+      - "5432:5432"
+    volumes:
+      - dbvol:/var/lib/postgresql/data
+      - ./Docker/db/initdb:/docker-entrypoint-initdb.d
+
+volumes:
+  dbvol:
