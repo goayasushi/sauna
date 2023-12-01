@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8" />
+	<title>会員管理システム</title>
+	<link rel="stylesheet" href="/css/bootstrap.css" />
+	<style type="text/css">
+		.errorStr {
+			color: red;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<h1>アカウント新規登録</h1>
+		<form th:action="@{/account/regist}" th:object="${account}" method="post">
+			<span class="errorStr" th:errors="*"></span>
+			<div class="form-group">
+				<label class="control-label" for="accountname">アカウント名</label>
+				<input class="form-control" type="text" name="accountname" id="accountname">
+			</div>
+			<div class="form-group">
+				<label class="control-label" for="password">パスワード</label>
+				<input class="form-control" type="password" name="password" id="password">
+			</div>
+			<div class="form-group">
+				<label class="control-label" for="role">権限</label>
+				<select class="form-control" name="role">
+					<option value=""></option>
+					<option th:each="role : ${@accountConstants.ROLES}" th:value="${role.key}">[[${role.value}]]
+					</option>
+				</select>
+			</div>
+			<button class="btn btn-default" type="submit">アカウント登録</button>
+		</form>
+		<div>
+			<a class="btn btn-default" th:href="@{/}">トップページへ</a>
+		</div>
+	</div>
+</body>
+
+</html>
