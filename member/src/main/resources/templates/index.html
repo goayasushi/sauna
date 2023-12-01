@@ -1,25 +1,28 @@
 <!DOCTYPE html>
-<!-- Thymeleafで使用するthタグを認識するための記述 -->
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<meta charset="UTF-8">
-	<title>Hello world</title>
-    <link rel="stylesheet" href="/css/bootstrap.css" />
+	<title>会員管理システム</title>
+	<link rel="stylesheet" href="/css/bootstrap.css" />
 </head>
 
 <body>
 	<div class="container">
-     	<h1>会員管理</h1>
+		<h1>会員管理</h1>
 		<div>
 			<a class="btn btn-default" th:href="@{/member/new}">会員登録へ</a>
 		</div>
 		<div>
 			<a class="btn btn-default" th:href="@{/member/search}">会員一覧へ</a>
 		</div>
+
+		<div th:if="${#authorization.expression('hasRole(''ADMIN'')')}">
+			<a class="btn btn-default" th:href="@{/account/regist}">アカウント登録へ</a>
+		</div>
 		<form th:action="@{/logout}" method="post">
-            <input type="submit" value="Sign Out"/>
-        </form>
+			<input type="submit" value="ログアウト" />
+		</form>
 	</div>
 </body>
 
