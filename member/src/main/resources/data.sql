@@ -1,9 +1,9 @@
 TRUNCATE members cascade;
 TRUNCATE prefectures CASCADE;
-TRUNCATE users;
+TRUNCATE accounts;
 
 SELECT SETVAL('members_id_seq', 1, false);
-SELECT SETVAL('users_id_seq', 1, false);
+SELECT SETVAL('accounts_id_seq', 1, false);
 
 INSERT INTO prefectures VALUES(1,'北海道','ホッカイドウ');		
 INSERT INTO prefectures VALUES(2,'青森県','アオモリケン');
@@ -53,6 +53,7 @@ INSERT INTO prefectures VALUES(45,'宮崎県','ミヤザキケン');
 INSERT INTO prefectures VALUES(46,'鹿児島県','カゴシマケン');
 INSERT INTO prefectures VALUES(47,'沖縄県','オキナワケン');
 
-INSERT INTO users(username, password) VALUES('テスト','$2a$08$pc8zE1zCagznq05nHYv4UOVCbuDM/uloBhiLEsSRPCD0TXlmZSVFS');
+INSERT INTO accounts(accountname, password, role) VALUES('admin','$2a$08$j2wY/l4vcq48h7hFkqWXXuBz..XKqKQVq42Lum3.QwlF52trU9HzC', 'ADMIN');
+INSERT INTO accounts(accountname, password, role) VALUES('user','$2a$08$pc8zE1zCagznq05nHYv4UOVCbuDM/uloBhiLEsSRPCD0TXlmZSVFS', 'USER');
 
 INSERT INTO members(first_name, last_name,prefecture, GENDER, version) VALUES('テスト','テスト', 1, 1, 0);

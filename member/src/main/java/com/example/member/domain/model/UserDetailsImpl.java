@@ -4,28 +4,31 @@ import java.util.Collection;
 import java.util.Collections;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 public class UserDetailsImpl implements UserDetails {
-	private User user;
-	
-	public UserDetailsImpl(User user) {
-		this.user = user;
+	private Account account;
+
+	public UserDetailsImpl(Account account) {
+		this.account = account;
 	}
-	
+
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return Collections.emptyList();	}
-	
+		return Collections.singletonList(new SimpleGrantedAuthority("ROLE_" + account.getRole()));
+	}
+
 	@Override
 	public String getUsername() {
-		return user.getUsername();
+		return account.getAccountname();
 	}
 
 	@Override
 	public String getPassword() {
-		return user.getPassword();
+		return account.getPassword();
 	}
+
 	@Override
 	public boolean isAccountNonExpired() {
 		return true;
