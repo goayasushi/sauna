@@ -28,7 +28,7 @@ public class MemberController {
 		this.prefectureService = prefectureService;
 	}
 
-	@GetMapping("index")
+	@GetMapping("/")
 	public String index(Model model) {
 		return "index";
 	}
