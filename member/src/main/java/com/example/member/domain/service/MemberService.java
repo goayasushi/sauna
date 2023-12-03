@@ -36,4 +36,8 @@ public class MemberService {
 		Member member = findById(id);
 	    memberRepository.delete(member);
 	  }
+	
+	public List<Member> searchMembers(String searchQuery) {
+	    return memberRepository.searchMembers(searchQuery);
+	}
 }

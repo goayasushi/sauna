@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.member.domain.model.Member;
 import com.example.member.domain.model.Prefecture;
@@ -41,7 +42,7 @@ public class MemberController {
 		return "member/new";
 	}
 
-	@GetMapping("member/search")
+	@GetMapping("members")
 	public String getMembers(Model model) {
 		List<Member> members = memberService.findAll();
 		model.addAttribute("members", members);
@@ -108,6 +109,18 @@ public class MemberController {
 	@GetMapping("member/{id}/delete")
 	  public String delete(@PathVariable Integer id, Model model) {
 		memberService.delete(id);
-	    return "redirect:/member/search";
+	    return "redirect:/members";
+	}
+	
+	@GetMapping("member/search")
+	public String searchMembers(@RequestParam(required = false) String searchQuery, Model model) {
+	    List<Member> members;
+	    if (searchQuery != null && !searchQuery.isEmpty()) {
+	        members = memberService.searchMembers(searchQuery);
+	    } else {
+	        members = memberService.findAll();
+	    }
+	    model.addAttribute("members", members);
+	    return "member/list";
 	}
 }

@@ -11,6 +11,10 @@
 	<div class="container">
 		<h1>会員一覧</h1>
 		<span th:if="${error}" style="color: red;">[[${error}]]</span>
+		<form action="/member/search" method="get">
+			<input type="text" name="searchQuery" />
+			<button type="submit">検索</button>
+		</form>
 		<table class="table">
 			<thead>
 				<tr>
