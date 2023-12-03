@@ -14,7 +14,7 @@
 			<a class="btn btn-default" th:href="@{/member/new}">会員登録へ</a>
 		</div>
 		<div>
-			<a class="btn btn-default" th:href="@{/member/search}">会員一覧へ</a>
+			<a class="btn btn-default" th:href="@{/members}">会員一覧へ</a>
 		</div>
 
 		<div th:if="${#authorization.expression('hasRole(''ADMIN'')')}">
