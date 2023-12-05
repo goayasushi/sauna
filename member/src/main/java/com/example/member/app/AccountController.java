@@ -38,4 +38,9 @@ public class AccountController {
 		userDetailsServiceImpl.save(account);
 		return "redirect:/";
 	}
+    
+    @GetMapping("/accessDenied")
+    private String accessDenied() {
+        return "accessDenied";
+    }
 }

@@ -16,6 +16,7 @@ public class WebSecurityConfig {
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http
 			.authorizeHttpRequests((requests) -> requests
+				.requestMatchers("/account/regist").hasRole("ADMIN")
 				.anyRequest().authenticated()
 			)
 			.formLogin((form) -> form
@@ -23,7 +24,10 @@ public class WebSecurityConfig {
 				.defaultSuccessUrl("/", true)
 				.permitAll()
 			)
-			.logout((logout) -> logout.permitAll());
+			.logout((logout) -> logout.permitAll())
+			.exceptionHandling((exceptions) -> exceptions
+	                .accessDeniedPage("/accessDenied")
+	            );
 
 		return http.build();
 	}
