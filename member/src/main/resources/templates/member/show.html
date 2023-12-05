@@ -5,11 +5,13 @@
 	<meta charset="utf-8" />
 	<title>Show Member</title>
 	<link rel="stylesheet" href="/css/bootstrap.css" />
+	<link rel="stylesheet" href="/css/header.css" />
 	<script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
 	<script th:src="@{/js/member.js}" defer="defer"></script>
 </head>
 
 <body>
+	<div th:replace="~{fragments/header :: header}"></div>
 	<div class="container">
 		<h1>会員詳細</h1>
 		<span th:if="${error}" style="color: red;">[[${error}]]</span>

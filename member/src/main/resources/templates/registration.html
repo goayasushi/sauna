@@ -5,6 +5,7 @@
 	<meta charset="utf-8" />
 	<title>会員管理システム</title>
 	<link rel="stylesheet" href="/css/bootstrap.css" />
+	<link rel="stylesheet" href="/css/header.css" />
 	<style type="text/css">
 		.errorStr {
 			color: red;
@@ -13,6 +14,7 @@
 </head>
 
 <body>
+	<div th:replace="~{fragments/header :: header}"></div>
 	<div class="container">
 		<h1>アカウント新規登録</h1>
 		<form th:action="@{/account/regist}" th:object="${account}" method="post">
@@ -35,9 +37,6 @@
 			</div>
 			<button class="btn btn-default" type="submit">アカウント登録</button>
 		</form>
-		<div>
-			<a class="btn btn-default" th:href="@{/}">トップページへ</a>
-		</div>
 	</div>
 </body>
 

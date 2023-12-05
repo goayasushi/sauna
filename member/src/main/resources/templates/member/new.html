@@ -5,6 +5,7 @@
 	<meta charset="utf-8" />
 	<title>会員管理システム</title>
 	<link rel="stylesheet" href="/css/bootstrap.css" />
+	<link rel="stylesheet" href="/css/header.css" />
 	<style type="text/css">
 		.errorStr {
 			color: red;
@@ -13,6 +14,7 @@
 </head>
 
 <body>
+	<div th:replace="~{fragments/header :: header}"></div>
 	<div class="container">
 		<h1>会員登録</h1>
 		<form th:action="@{/member/regist}" th:object="${member}" th:method="post">
@@ -29,7 +31,8 @@
 				<label for="gender" class="control-label">性別</label>
 				<select class="form-control" name="gender">
 					<option value=""></option>
-					<option th:each="gender : ${@memberConstants.GENDERS}" th:value="${gender.key}">[[${gender.value}]]</option>
+					<option th:each="gender : ${@memberConstants.GENDERS}" th:value="${gender.key}">[[${gender.value}]]
+					</option>
 				</select>
 			</div>
 			<div class="form-group">

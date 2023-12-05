@@ -61,7 +61,7 @@ public class MemberController {
 		return "redirect:search";
 	}
 
-	@GetMapping("member/{id}")
+	@GetMapping("members/{id}")
 	public String showMember(@PathVariable Integer id, Model model) {
 		Member member = memberService.findById(id);
 		if(member.getId()==null) {

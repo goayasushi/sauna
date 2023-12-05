@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<header class='top-page-header' th:fragment="header">
+	<div class='nav-bar'>
+		<div class='lists-left'>
+			<a class="header-title" th:href="@{/}">会員管理システム</a>
+		</div>
+		<ul class='lists-right'>
+			<li th:text="${#authentication.principal.username}" class="user-nickname">ユーザー名</li>
+			<li>
+				<form th:action="@{/logout}" method="post">
+					<input type="submit" value="ログアウト" />
+				</form>
+			</li>
+		</ul>
+	</div>
+</header>
+
+</html>

@@ -5,6 +5,7 @@
 	<meta charset="utf-8" />
 	<title>Edit Member</title>
 	<link rel="stylesheet" href="/css/bootstrap.css" />
+	<link rel="stylesheet" href="/css/header.css" />
 	<style type="text/css">
 		.errorStr {
 			color: red;
@@ -17,6 +18,7 @@
 </head>
 
 <body>
+	<div th:replace="~{fragments/header :: header}"></div>
 	<div class="container">
 		<h1>会員情報編集</h1>
 		<form th:action="@{/member/update}" th:object="${member}" th:method="post">
@@ -70,10 +72,10 @@
 				<input class="form-control" type="text" th:field="*{phoneNumber}" placeholder="080-xxxx-xxxx" />
 			</div>
 			<input type="hidden" th:field="*{version}" />
-			<button class="btn btn-default" id="save" type="submit" >更新</button>
+			<button class="btn btn-default" id="save" type="submit">更新</button>
 		</form>
 		<div>
-			<a class="btn btn-default" th:href="@{/membes}">一覧画面へ</a>
+			<a class="btn btn-default" th:href="@{/members}">一覧画面へ</a>
 		</div>
 	</div>
 </body>

@@ -5,9 +5,11 @@
 	<meta charset="utf-8" />
 	<title>Listing Member</title>
 	<link rel="stylesheet" href="/css/bootstrap.css" />
+	<link rel="stylesheet" href="/css/header.css" />
 </head>
 
 <body>
+	<div th:replace="~{fragments/header :: header}"></div>
 	<div class="container">
 		<h1>会員一覧</h1>
 		<span th:if="${error}" style="color: red;">[[${error}]]</span>
@@ -27,7 +29,7 @@
 			</thead>
 			<tbody>
 				<tr th:each="member:${members}" th:object="${member}">
-					<td><a th:href="@{{id}(id=*{id})}" th:text="*{id}"></a></td>　
+					<td><a th:href="@{/members/{id}(id=*{id})}" th:text="*{id}"></a></td>　
 					<td th:text="*{firstName}"></td>
 					<td th:text="*{lastName}"></td>
 					<td th:text="${@memberConstants.GENDERS.get(member.gender)}"></td>
@@ -37,9 +39,6 @@
 		</table>
 		<div>
 			<a class="btn btn-default" th:href="@{/member/new}">会員登録画面へ</a>
-		</div>
-		<div>
-			<a class="btn btn-default" th:href="@{/index}">トップページへ</a>
 		</div>
 	</div>
 </body>
