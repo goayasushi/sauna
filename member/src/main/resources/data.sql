@@ -56,4 +56,7 @@ INSERT INTO prefectures VALUES(47,'沖縄県','オキナワケン');
 INSERT INTO accounts(accountname, password, role) VALUES('admin','$2a$08$j2wY/l4vcq48h7hFkqWXXuBz..XKqKQVq42Lum3.QwlF52trU9HzC', 'ADMIN');
 INSERT INTO accounts(accountname, password, role) VALUES('user','$2a$08$pc8zE1zCagznq05nHYv4UOVCbuDM/uloBhiLEsSRPCD0TXlmZSVFS', 'USER');
 
-INSERT INTO members(first_name, last_name,prefecture, GENDER, version) VALUES('テスト','テスト', 1, 1, 0);
+INSERT INTO members(first_name, last_name, birth_date, post_code, prefecture, address1, address2, GENDER, phone_number, version) VALUES('hoge','ホゲ','1993-11-11','1111111', 1,'hoge','hoge', 1, '11111111111', 0);
+INSERT INTO members(first_name, last_name, birth_date, post_code, prefecture, address1, address2, GENDER, phone_number, version) VALUES('hogehoge','ホゲホゲ','1993-11-11','1111111', 1,'hoge','hoge', 2, '11111111111', 0);
+INSERT INTO members(first_name, last_name, birth_date, post_code, prefecture, address1, address2, GENDER, phone_number, version) VALUES('fuga','フガ','1993-11-11','1111111', 1,'fuga','fuga', 1, '11111111111', 0);
+INSERT INTO members(first_name, last_name, birth_date, post_code, prefecture, address1, address2, GENDER, phone_number, version) VALUES('piyo','ピヨ','1993-11-11','1111111', 1,'piyo','piyo', 1, '11111111111', 0);
