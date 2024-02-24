@@ -7,3 +7,4 @@ brach_practise はブランチのマージ元です。
 コミットの表示の確認
 squach コミットの表示の確認
 squach コミットの表示の確認
+squach コミットの表示の確認 2
