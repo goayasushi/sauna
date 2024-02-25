@@ -1,0 +1,108 @@
+10:26:50.950 [main] DEBUG com.intuit.karate.Suite - [config] classpath:karate-config.js
+10:26:51.965 [pool-2-thread-1] INFO  com.intuit.karate - karate.env system property was: null 
+10:26:52.261 [pool-2-thread-1] DEBUG com.intuit.karate - request:
+1 > GET http://localhost:8080/members
+1 > Cookie: JSESSIONID=DBFAFAEEFD76D9A363F0D0123B13D10F
+1 > Host: localhost:8080
+1 > Connection: Keep-Alive
+1 > User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.2)
+1 > Accept-Encoding: gzip,deflate
+
+
+10:26:52.322 [pool-2-thread-1] DEBUG com.intuit.karate - response time in milliseconds: 57
+1 < 200
+1 < X-Content-Type-Options: nosniff
+1 < X-XSS-Protection: 0
+1 < Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+1 < Pragma: no-cache
+1 < Expires: 0
+1 < X-Frame-Options: DENY
+1 < Content-Type: text/html;charset=UTF-8
+1 < Content-Language: en-US
+1 < Transfer-Encoding: chunked
+1 < Date: Sun, 25 Feb 2024 01:26:52 GMT
+1 < Keep-Alive: timeout=60
+1 < Connection: keep-alive
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>Listing Member</title>
+	<link rel="stylesheet" href="/css/bootstrap.css" />
+	<link rel="stylesheet" href="/css/header.css" />
+</head>
+
+<body>
+	<header class='top-page-header'>
+	<div class='nav-bar'>
+		<div class='lists-left'>
+			<a class="header-title" href="/">会員管理システム</a>
+		</div>
+		<ul class='lists-right'>
+			<li class="user-nickname">admin</li>
+			<li>
+				<form action="/logout" method="post"><input type="hidden" name="_csrf" value="lYsYDMFaxxyDh5_Zhi1HH8ZCNCu094Q7z-rQnTCjgPeTEuBpo7shb6dvoSWusae9tQBzevJ1GRKNleAW-trkr1LH5c6jd9MN"/>
+					<input type="submit" value="ログアウト" />
+				</form>
+			</li>
+		</ul>
+	</div>
+</header>
+	<div class="container">
+		<h1>会員一覧</h1>
+		
+		<form action="/member/search" method="get">
+			<input type="text" name="searchQuery" />
+			<button type="submit">検索</button>
+		</form>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>姓</th>
+					<th>名</th>
+					<th>性別</th>
+					<th>都道府県</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><a href="/members/1">1</a></td>　
+					<td>hoge</td>
+					<td>ホゲ</td>
+					<td>男性</td>
+					<td>北海道</td>
+				</tr>
+				<tr>
+					<td><a href="/members/2">2</a></td>　
+					<td>hogehoge</td>
+					<td>ホゲホゲ</td>
+					<td>女性</td>
+					<td>北海道</td>
+				</tr>
+				<tr>
+					<td><a href="/members/3">3</a></td>　
+					<td>fuga</td>
+					<td>フガ</td>
+					<td>男性</td>
+					<td>北海道</td>
+				</tr>
+				<tr>
+					<td><a href="/members/4">4</a></td>　
+					<td>piyo</td>
+					<td>ピヨ</td>
+					<td>男性</td>
+					<td>北海道</td>
+				</tr>
+			</tbody>
+		</table>
+		<div>
+			<a class="btn btn-default" href="/member/new">会員登録画面へ</a>
+		</div>
+	</div>
+</body>
+
+</html>
+
+10:26:52.932 [pool-3-thread-1] INFO  com.intuit.karate.Suite - <<pass>> feature 1 of 1 (0 remaining) classpath:examples/memberss/members.feature

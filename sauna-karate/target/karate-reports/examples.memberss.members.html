@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet" href="res/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="res/karate-report.css" type="text/css"/>
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <script type="text/javascript" src="res/jquery.min.js"></script>
+    <script type="text/javascript" src="res/jquery.tablesorter.min.js"></script>
+    <script type="text/javascript" src="res/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="res/bootstrap.min.js"></script>
+    <script type="text/javascript" src="res/karate-report.js"></script>
+    <script type="text/javascript" src="res/Resemble.js"></script>
+    <script>
+!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
+  api_host:'https://app.posthog.com',
+  persistence:'localStorage',
+  autocapture:false,
+  capture_pageview:false,
+  api_transport:'sendBeacon',
+  loaded: function(posthog) { 
+    posthog.capture("report_feature",{distinct_id:"3a0901c8-fed9-4c95-a68d-e05fe4abd3ea",karate_version:"1.4.1",karate_meta:null});
+  }
+});
+</script>
+
+    <title>examples.memberss.members</title>
+  </head>
+  <body>
+    <div id="root-container">
+      <div id="leftnav">
+        
+        <div>
+  <div class="nav-logo">
+    <a href="https://karatelabs.io">
+      <img src="karate-labs-logo-ring.svg" alt="Karate Labs"/>
+    </a>
+    <div class="nav-count">
+      <div id="nav-pass" class="bg-success">1</div>
+      <div id="nav-fail" class="bg-danger">0</div>
+    </div>
+  </div>
+  <div id="nav-env">
+    <div></div>
+  </div>
+  <div id="nav-type">
+    <div>Scenarios</div>
+  </div>
+  <div id="nav-date">
+    <div>2024-02-25 10:26:52 午前</div>
+  </div>
+</div>
+
+        <div class="nav-container">
+          <div class="nav-item passed">
+            <a href="#[1:9]"><span>[1:9]</span> <span>get all members</span></a>
+          </div>
+        </div>
+      </div>
+      <div id="content">
+        <div class="page-heading alert alert-primary">
+          <a href="karate-summary.html">Summary</a><span class="feature-label">|</span>
+          <a href="karate-tags.html">Tags</a><span class="feature-label">|</span>
+          <span class="feature-label">Feature:</span>
+          <span class="feature-path">examples/memberss/members.feature</span><span class="feature-label">|</span>
+          <span class="feature-name">member test script</span>
+          <span class="feature-description">for help, see: https://github.com/karatelabs/karate/wiki/IDE-Support</span>
+        </div>
+        <div class="scenario">
+          <div class="scenario-heading" id="[1:9]">
+            <div class="heading-container">
+              <div class="scenario-tags">
+                
+              </div>
+              <div class="scenario-keyword">
+                Scenario: <span>[1:9]</span>
+                <span class="scenario-name">get all members</span>
+                <span></span>
+              </div>
+            </div>
+            <div class="scenario-time passed">
+              <span>ms:</span>&nbsp;<span>369</span>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-container" id="[1:9]bg">
+              <div class="step-ref bg-step">&gt;&gt;</div>
+              <div class="step-cell passed">Background:</div>
+            </div>
+            <div class="time-cell passed"></div>
+          </div>
+          <div data-parent="[1:9]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.5">
+      <div class="step-ref bg-step">5</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>url &#39;http://localhost:8080/&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.5">10:26:51.967 karate.env system property was: null 
+</div>   
+
+  
+
+</div>
+</div>
+          <div data-parent="[1:9]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.6">
+      <div class="step-ref bg-step">6</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>cookie JSESSIONID = &#39;DBFAFAEEFD76D9A363F0D0123B13D10F&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">3</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.10">
+      <div class="step-ref passed">10</div>
+      
+      <div class="step-cell passed">
+        <span>Given</span>&nbsp;<span>path &#39;members&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.11">
+      <div class="step-ref passed">11</div>
+      
+      <div class="step-cell passed">
+        <span>When</span>&nbsp;<span>method get</span>
+      </div>
+    </div>
+    <div class="time-cell passed">346</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.11">10:26:52.262 request:
+1 &gt; GET http://localhost:8080/members
+1 &gt; Cookie: JSESSIONID=DBFAFAEEFD76D9A363F0D0123B13D10F
+1 &gt; Host: localhost:8080
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.2)
+1 &gt; Accept-Encoding: gzip,deflate
+
+
+10:26:52.323 response time in milliseconds: 57
+1 &lt; 200
+1 &lt; X-Content-Type-Options: nosniff
+1 &lt; X-XSS-Protection: 0
+1 &lt; Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+1 &lt; Pragma: no-cache
+1 &lt; Expires: 0
+1 &lt; X-Frame-Options: DENY
+1 &lt; Content-Type: text/html;charset=UTF-8
+1 &lt; Content-Language: en-US
+1 &lt; Transfer-Encoding: chunked
+1 &lt; Date: Sun, 25 Feb 2024 01:26:52 GMT
+1 &lt; Keep-Alive: timeout=60
+1 &lt; Connection: keep-alive
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+	&lt;meta charset=&quot;utf-8&quot; /&gt;
+	&lt;title&gt;Listing Member&lt;/title&gt;
+	&lt;link rel=&quot;stylesheet&quot; href=&quot;/css/bootstrap.css&quot; /&gt;
+	&lt;link rel=&quot;stylesheet&quot; href=&quot;/css/header.css&quot; /&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+	&lt;header class=&#39;top-page-header&#39;&gt;
+	&lt;div class=&#39;nav-bar&#39;&gt;
+		&lt;div class=&#39;lists-left&#39;&gt;
+			&lt;a class=&quot;header-title&quot; href=&quot;/&quot;&gt;会員管理システム&lt;/a&gt;
+		&lt;/div&gt;
+		&lt;ul class=&#39;lists-right&#39;&gt;
+			&lt;li class=&quot;user-nickname&quot;&gt;admin&lt;/li&gt;
+			&lt;li&gt;
+				&lt;form action=&quot;/logout&quot; method=&quot;post&quot;&gt;&lt;input type=&quot;hidden&quot; name=&quot;_csrf&quot; value=&quot;lYsYDMFaxxyDh5_Zhi1HH8ZCNCu094Q7z-rQnTCjgPeTEuBpo7shb6dvoSWusae9tQBzevJ1GRKNleAW-trkr1LH5c6jd9MN&quot;/&gt;
+					&lt;input type=&quot;submit&quot; value=&quot;ログアウト&quot; /&gt;
+				&lt;/form&gt;
+			&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/div&gt;
+&lt;/header&gt;
+	&lt;div class=&quot;container&quot;&gt;
+		&lt;h1&gt;会員一覧&lt;/h1&gt;
+		
+		&lt;form action=&quot;/member/search&quot; method=&quot;get&quot;&gt;
+			&lt;input type=&quot;text&quot; name=&quot;searchQuery&quot; /&gt;
+			&lt;button type=&quot;submit&quot;&gt;検索&lt;/button&gt;
+		&lt;/form&gt;
+		&lt;table class=&quot;table&quot;&gt;
+			&lt;thead&gt;
+				&lt;tr&gt;
+					&lt;th&gt;ID&lt;/th&gt;
+					&lt;th&gt;姓&lt;/th&gt;
+					&lt;th&gt;名&lt;/th&gt;
+					&lt;th&gt;性別&lt;/th&gt;
+					&lt;th&gt;都道府県&lt;/th&gt;
+				&lt;/tr&gt;
+			&lt;/thead&gt;
+			&lt;tbody&gt;
+				&lt;tr&gt;
+					&lt;td&gt;&lt;a href=&quot;/members/1&quot;&gt;1&lt;/a&gt;&lt;/td&gt;　
+					&lt;td&gt;hoge&lt;/td&gt;
+					&lt;td&gt;ホゲ&lt;/td&gt;
+					&lt;td&gt;男性&lt;/td&gt;
+					&lt;td&gt;北海道&lt;/td&gt;
+				&lt;/tr&gt;
+				&lt;tr&gt;
+					&lt;td&gt;&lt;a href=&quot;/members/2&quot;&gt;2&lt;/a&gt;&lt;/td&gt;　
+					&lt;td&gt;hogehoge&lt;/td&gt;
+					&lt;td&gt;ホゲホゲ&lt;/td&gt;
+					&lt;td&gt;女性&lt;/td&gt;
+					&lt;td&gt;北海道&lt;/td&gt;
+				&lt;/tr&gt;
+				&lt;tr&gt;
+					&lt;td&gt;&lt;a href=&quot;/members/3&quot;&gt;3&lt;/a&gt;&lt;/td&gt;　
+					&lt;td&gt;fuga&lt;/td&gt;
+					&lt;td&gt;フガ&lt;/td&gt;
+					&lt;td&gt;男性&lt;/td&gt;
+					&lt;td&gt;北海道&lt;/td&gt;
+				&lt;/tr&gt;
+				&lt;tr&gt;
+					&lt;td&gt;&lt;a href=&quot;/members/4&quot;&gt;4&lt;/a&gt;&lt;/td&gt;　
+					&lt;td&gt;piyo&lt;/td&gt;
+					&lt;td&gt;ピヨ&lt;/td&gt;
+					&lt;td&gt;男性&lt;/td&gt;
+					&lt;td&gt;北海道&lt;/td&gt;
+				&lt;/tr&gt;
+			&lt;/tbody&gt;
+		&lt;/table&gt;
+		&lt;div&gt;
+			&lt;a class=&quot;btn btn-default&quot; href=&quot;/member/new&quot;&gt;会員登録画面へ&lt;/a&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.12">
+      <div class="step-ref passed">12</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>status 200</span>
+      </div>
+    </div>
+    <div class="time-cell passed">3</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.13">
+      <div class="step-ref passed">13</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>match response contains &#39;会員一覧&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">15</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
